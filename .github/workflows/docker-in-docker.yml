@@ -16,6 +16,7 @@ jobs:
       run: |
         docker pull ubuntu
         docker system info
-#      env: 
- #       HTTP_PROXY: "http://proxy.com:8080"
-  #      HTTPS_PROXY: "http://proxy.com:8080"
+      env: 
+        HTTP_PROXY: http://proxy.com:8080
+        HTTPS_PROXY: http://proxy.com:8080
+        NO_PROXY: .inter.se
