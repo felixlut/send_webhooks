@@ -10,11 +10,14 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    strategy:
+      matrix:
+        runner-type: [ "runner", "runner-dind" ]
+  
+    runs-on: ${{ matrix.runner-type }}
     steps:
     - name: Docker
       run: |
-        docker pull ubuntu
         docker system info
       env: 
         HTTP_PROXY: http://proxy.com:8080
